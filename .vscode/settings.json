@@ -1,0 +1,23 @@
+{
+	"[lua]": {
+		// "editor.defaultFormatter": "Koihik.vscode-lua-format",
+		"editor.defaultFormatter": "JohnnyMorganz.stylua",
+		"editor.indentSize": "tabSize"
+	},
+	"vscode-lua-format.configPath": "./.vscode/lua-format-config.json",
+	"Lua.diagnostics.disable": [
+		"lowercase-global",
+		// "undefined-global",
+		"deprecated"
+	],
+	"Lua.workspace.ignoreDir": [".vscode", "._dev"],
+	"Lua.format.defaultConfig": {
+		"indent_style": "tab",
+		"indent_size": "2",
+		"max_line_length": "80",
+		"continuation_indent": "2",
+		"trailing_table_separator": "always"
+	},
+	"editor.insertSpaces": false,
+	"editor.tabSize": 2
+}
