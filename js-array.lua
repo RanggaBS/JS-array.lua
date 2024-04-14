@@ -21,10 +21,18 @@ end
 --                                   Methods                                  --
 -- -------------------------------------------------------------------------- --
 
----Returns the length of the array
----@return integer
-function JSArray:getLength()
-	return table.getn(self)
+---@generic T
+---@param index? number default is `1`
+---@return T | nil
+function JSArray:at(index)
+	assert(type(index) == "number", '`index` must be type of "number"')
+
+	index = index or 1
+	if index < 0 then
+		index = table.getn(self) - math.abs(index) + 1
+	end
+
+	return self[index]
 end
 
 ---Combines two or more arrays.
@@ -97,19 +105,6 @@ function JSArray:copyWithin(targetIndex, startIndex, endIndex)
 	end
 
 	return self
-end
-
----@generic T
----@param index? number default is `1`
----@return T | nil
-function JSArray:at(index)
-	assert(type(index) == "number", '`index` must be type of "number"')
-
-	index = index or 1
-	if index < 0 then
-		index = table.getn(self) - math.abs(index) + 1
-	end
-	return self[index]
 end
 
 ---Returns an iterable of key, value pairs for every entry in the array.
@@ -356,6 +351,12 @@ function JSArray.from(arrayLike, mapFunction)
 	end
 
 	return JSArray.new(result)
+end
+
+---Returns the length of the array
+---@return integer
+function JSArray:getLength()
+	return table.getn(self)
 end
 
 ---Determines whether an array includes a certain element, returning `true` or
