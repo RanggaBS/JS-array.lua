@@ -1,5 +1,12 @@
 # JS-array.lua
 
+## Table of Contents
+
+-   [Installation](#installation)
+-   [Usage](#usage)
+-   [API](#api)
+-   [Meta Functions](#meta-functions)
+
 A Javascript-like array library for Lua. Built for Lua 5.0.x.
 
 ## Installation
